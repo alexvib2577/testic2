@@ -38,14 +38,8 @@ def calculate(op):
         num2 = float(b_value.get())
         if op == "Сложение":
             result = num1 + num2
-        elif op == "Вычисление":
-            result = num1 - num2
         elif op == "Умножение":
             result = num1 * num2
-        elif op == "Деление":
-            result = num1 / num2 if num2 != 0 else "Ошибка: деление на ноль"
-        elif op == "Возведение в степень":
-            result = num1 ** num2
         result_label.config(text=f"Результат: {result}")
     except ValueError as e:
         messagebox.showerror("Ошибка", f"Некорректный ввод: {e}")
@@ -62,20 +56,9 @@ def addition():
     calculate("Сложение")
 
 
-def subtract():
-    calculate("Вычисление")
-
-
 def multiply():
     calculate("Умножение")
 
-
-def division():
-    calculate("Деление")
-
-
-def exponentiaton():
-    calculate("Возведение в степень")
 
 
 root = tk.Tk()
@@ -111,13 +94,8 @@ b_value.grid(row=3, column=1, padx=5, pady=5)
 
 addition_button = ttk.Button(text="Сложение", command=addition, style="TButton")
 addition_button.grid(row=4, column=0, columnspan=2, pady=5, sticky="ew")
-subtract_button = ttk.Button(text="Вычисление", command=subtract, style="TButton")
-subtract_button.grid(row=5, column=0, columnspan=2, pady=5, sticky="ew")
 multiply_button = ttk.Button(text="Умножение", command=multiply, style="TButton")
 multiply_button.grid(row=6, column=0, columnspan=2, pady=5, sticky="ew")
-division_button = ttk.Button(text="Деление", command=division, style="TButton")
-division_button.grid(row=7, column=0, columnspan=2, pady=5, sticky="ew")
-exponentiation_button = ttk.Button(text="Возведение в степень", command=exponentiaton, style="TButton")
-exponentiation_button.grid(row=8, column=0, columnspan=2, pady=5, sticky="ew")
+
 
 root.mainloop()
